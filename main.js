@@ -6,7 +6,7 @@ $.get("./store.json").done((data) => {
      <img src="./${product.photo}" alt="" draggable="false" />
      <h5 class="product-title">${product.title}</h5>
      <p class="product-brand">${product.brand}</p>
-     <p class="product-price">${product.price}</p>
+     <p class="product-price">￦${product.price}</p>
      <button class="add" data-id="${product.id}">
        Add
      </button>
@@ -87,7 +87,7 @@ $.get("./store.json").done((data) => {
               <img src="${added.photo}">
               <h4>${added.title}</h4>
               <h4>${added.brand}</h4>
-              <p>${added.price}</p>
+              <p>￦${added.price}</p>
               <input type="number" value="${added.count}" class="${added.id} input-btn w-100">
             </div>
           `);
@@ -96,7 +96,7 @@ $.get("./store.json").done((data) => {
     $(".final-price-modal").css("display", "block");
 
     let totalprice = priceTotal();
-    $(".final-price").html(`${totalprice} won`);
+    $(".final-price").html(`￦${totalprice}`);
   });
 
   // DRAG AND DROP PRODUCTS
@@ -121,7 +121,7 @@ $.get("./store.json").done((data) => {
     for (let i = 0; i < $(".input-btn").length; i++) {
       let total = 0;
       let quantity = parseInt($(".input-btn").eq(i).val());
-      let price = parseInt($(".added-item p").eq(i).text());
+      let price = parseInt($(".added-item p").eq(i).text().split("￦")[1]);
       total = quantity * price;
       totalPrice += total;
     }
