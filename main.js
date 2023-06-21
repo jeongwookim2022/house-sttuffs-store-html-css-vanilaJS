@@ -16,22 +16,20 @@ $.get("./store.json").done((data) => {
 
   // SEARCH LISTENER
   $(".search-tab .input").on("change", (e) => {
-    $(".products-group").html("");
-    let userInput = e.target.value;
-    $(".cart-drag").html("");
-    $(".cart-drag").append('<h5 class="drag-here">Darg items here</h5>');
-    productsSearched(userInput);
+    $(".search-btn").on("click", () => {
+      let userInput = e.target.value;
+      productsSearched(userInput);
+    });
   });
 
   // SEARCH
   // - put the products searched on the products group box.
   function productsSearched(userInput) {
-    $(".product").html("");
-
     $.get("./store.json").done((data) => {
       const products = data.products;
       products.forEach((product, i) => {
         if (product.title.includes(userInput)) {
+          console.log(userInput);
           // 템플릿
           const yellowBg = `<span style='background-color: yellow;'>${userInput}</span>`;
           const template = `
@@ -48,7 +46,10 @@ $.get("./store.json").done((data) => {
           <button class="add" data-id="${product.id}">Add</button>
           </div>`;
 
-          $(".products-group").eq(i).append(template);
+          console.log(template);
+
+          $(".products-group").html("");
+          $(".products-group").append(template);
         }
       });
     });
