@@ -1,5 +1,5 @@
 # house-sttuffs-store-html-css-vanilaJS
-## Click: [DEMO](https://brabits.netlify.app/)
+## Click: [DEMO](https://housedeco.netlify.app/)
 
 ### 1. Main page(Desktop and Mobile)
 ![Screenshot (1462)](https://github.com/jeongwookim2022/house-sttuffs-store-html-css-vanilaJS/assets/109917393/f4d02e4e-3160-45c0-b990-9cab7b547f7c)
